@@ -31,7 +31,7 @@ if (mix.inProduction()) {
 // 1. Add the following to your webpack.mix.js and
 // match the right port number from php artisan serve
 
-///mix.browserSync('127.0.0.1:8001');
+mix.browserSync('127.0.0.1:8001');
 
 // 2. run npx mix watch or npm run watch in the terminal
 // to run the server and watch for changes
