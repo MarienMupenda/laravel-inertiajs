@@ -22,7 +22,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <BreezeGuestLayout class="p-3">
         <Head title="Register"/>
 
         <BreezeValidationErrors class="mb-4"/>
@@ -32,7 +32,6 @@ const submit = () => {
                 id="input-group-1"
                 label="Name"
                 label-for="input-1"
-                description="We'll never share your email with anyone else."
             >
                 <b-form-input
                     id="input-1"
@@ -62,17 +61,12 @@ const submit = () => {
                 id="input-group-1"
                 label="Password"
                 label-for="input-1"
-                description="We'll never share your email with anyone else."
             >
                 <b-form-input
-                    placeholder="Enter email"
+                    placeholder="Enter your password"
                     id="password" type="password" class="mt-1 block w-full" v-model="form.password" required
                     autocomplete="new-password"
                 ></b-form-input>
-                <b-form-invalid-feedback :state="validation">
-                    Your user ID must be 5-12 characters long.
-                </b-form-invalid-feedback>
-                <b-form-valid-feedback :state="validation"> Looks Good. </b-form-valid-feedback>
             </b-form-group>
 
             <b-form-group
@@ -80,7 +74,6 @@ const submit = () => {
                 id="input-group-1"
                 label="Confirm Password"
                 label-for="input-1"
-                description="We'll never share your email with anyone else."
             >
                 <b-form-input
                     id="password_confirmation" type="password" class="mt-1 block w-full"
@@ -92,10 +85,9 @@ const submit = () => {
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Already registered?
                 </Link>
-
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
-                </BreezeButton>
+            </div>
+            <div class="mt-4">
+                <b-button type="submit" variant="primary">Register</b-button>
             </div>
         </form>
     </BreezeGuestLayout>
