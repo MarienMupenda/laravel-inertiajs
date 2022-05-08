@@ -19,14 +19,6 @@ const showingNavigationDropdown = ref(false);
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <Link class="nav-link" :href="route('orders.index')">
-                            <i class="fas fa-home"></i>
-                            <span class="d-md-inline d-none">Commandes</span>
-                            <span v-if="$page.props.order_count" class="badge bg-dark text-white ms-1 rounded-pill">{{ $page.props.order_count }}</span>
-
-                        </Link>
-                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
