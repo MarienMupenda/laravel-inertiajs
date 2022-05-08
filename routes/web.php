@@ -1,11 +1,6 @@
 <?php
 
-use App\Http\Controllers\BookController;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ItemController;
-use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PaymentController;
+
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Artisan;
@@ -30,7 +25,7 @@ Route::get('/', function () {
         'canRegister' => Route::has('register'),
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
-    ]);
+    ])->name('home');
 });
 
 Route::get('/dashboard',function (){

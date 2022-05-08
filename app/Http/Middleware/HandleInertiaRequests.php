@@ -41,7 +41,6 @@ class HandleInertiaRequests extends Middleware
             'ziggy' => function () {
                 return (new Ziggy)->toArray();
             },
-            'order_count' => $request->user()?$request->user()->orders()->count():0,
         ]);
     }
 }

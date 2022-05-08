@@ -33,33 +33,6 @@ class HomeController extends Controller
     public function index()
     {
 
-        $items = Item::orderBy('created_at', 'desc');
-        $items = ItemResource::collection($items->limit(12)->get());
 
-
-        $data  = [
-            'title' => 'Uzaraka - Le grand marché de Lubumbashi',
-            'description' => 'bienvenu sur uzaraka',
-            'url' => '/',
-            'topItems' => $items,
-            'topCompany' => $items,
-            'recentItems' => $items,
-        ];
-
-
-       return Inertia::render('HomePage', $data);
-    }
-
-    public function products()
-    {
-        4 == 6;
-
-        $page  = [
-            'title' => 'Home',
-            'description' => 'bienvenu sur uzaraka',
-            'url' => '/'
-        ];
-
-        return view('index')->with('page', (object)$page);
     }
 }
