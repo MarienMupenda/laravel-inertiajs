@@ -24,7 +24,7 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -33,21 +33,9 @@ Route::get('/welcome', function () {
     ]);
 });
 
-Route::redirect('/dashboard','/dashboard/orders')->middleware(['auth'])->name('dashboard');
-
-Route::group(['prefix'=>'dashboard', 'middleware' => ['auth']], function () {
-    Route::resource('orders', OrderController::class);
-});
-
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('produits/{item:slug}', [ItemController::class, 'show'])->name('items.show');
-Route::get('produits/{item:slug}/checkout', [ItemController::class, 'checkout'])->name('items.checkout');
-Route::resource('books', BookController::class);
-Route::resource('companies', CompanyController::class);
-Route::match(['get','post'],'payments/test', [PaymentController::class,'test'])->name('payments.test');
-
-Route::resource('payments', PaymentController::class);
-
+Route::get('/dashboard',function (){
+    return Inertia::render('Dashboard');
+})->middleware(['auth'])->name('dashboard');
 
 Route::post('git-deploy', function () {
     Artisan::call('git:deploy');
